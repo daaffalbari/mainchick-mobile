@@ -1,6 +1,6 @@
 <div  align="center">
 
-<img  src="![mainchick](https://github.com/daaffalbari/mainchick-mobile/assets/73302268/4724ca64-c45c-4dec-b35e-f791c79724ea)
+<img  src="https://github.com/daaffalbari/mainchick-mobile/assets/73302268/4724ca64-c45c-4dec-b35e-f791c79724ea
 "  alt="Logo"  width="100%">
 
 </div>
@@ -29,6 +29,6 @@ A few resources to get you started if this is your first Flutter project:
 
 ## Overview
 
-![Group 1](![Group 2](https://github.com/daaffalbari/mainchick-mobile/assets/73302268/b55dd51f-1d8c-40d4-ac3c-1ff112dc9e0d))
+(![Group 2](https://github.com/daaffalbari/mainchick-mobile/assets/73302268/b55dd51f-1d8c-40d4-ac3c-1ff112dc9e0d))
 
-![Group 2](![Group 1](https://github.com/daaffalbari/mainchick-mobile/assets/73302268/11a01329-7677-4691-be90-99eea5aff412))
+(![Group 1](https://github.com/daaffalbari/mainchick-mobile/assets/73302268/11a01329-7677-4691-be90-99eea5aff412))
