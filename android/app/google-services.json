@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "172329059556",
+    "firebase_url": "https://cimerangfarm-421db.firebaseio.com",
+    "project_id": "cimerangfarm-421db",
+    "storage_bucket": "cimerangfarm-421db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172329059556:android:7f1046aec165921c0cd8f1",
+        "android_client_info": {
+          "package_name": "id.ac.unikom.codelabs.moonchick"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172329059556-88d7f9sj6n5363tgk4jct7m2athhk8k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXLpacmZrZr_seGT_f6n1-IvqGK8IBTQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172329059556-88d7f9sj6n5363tgk4jct7m2athhk8k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:172329059556:android:bfb88ececa7ff4d1",
+        "android_client_info": {
+          "package_name": "smartcagechicken.codelabs.unikom.ac.id.kandangayamsmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "172329059556-q2ql7vlm2qfqv6c5qdg47k43afaj7v8p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "smartcagechicken.codelabs.unikom.ac.id.kandangayamsmart",
+            "certificate_hash": "3818d201613749397d365c97677a4fdda816ec17"
+          }
+        },
+        {
+          "client_id": "172329059556-88d7f9sj6n5363tgk4jct7m2athhk8k3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXLpacmZrZr_seGT_f6n1-IvqGK8IBTQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "172329059556-88d7f9sj6n5363tgk4jct7m2athhk8k3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
