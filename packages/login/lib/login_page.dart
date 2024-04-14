@@ -22,19 +22,19 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(height: 159),
               Image.asset('assets/login_logo.png'),
               const SizedBox(height: 24),
-              Text(
+              const Text(
                 'Selamat Datang!',
                 style: TextStyle(
                   fontSize: 24,
                   // fontWeight: medium,
-                  color: const Color(0xFF5C6370),
+                  color: Color(0xFF5C6370),
                 ),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
                 height: 12,
               ),
-              Text(
+              const Text(
                 'Silakan masukkan username dan password\nyang telah terdaftar pada sistem',
                 // style: kBodyMedium.copyWith(
                 //   fontWeight: light,
@@ -99,7 +99,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 8,
               ),
-              Text(
+              const Text(
                 'Lupa Password?',
                 textAlign: TextAlign.right,
                 style: TextStyle(

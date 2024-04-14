@@ -28,7 +28,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 24,
               ),
-              Text(
+              const Text(
                 'Selamat Datang!',
                 style: TextStyle(
                   fontSize: 24,
@@ -39,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
               const SizedBox(
                 height: 12,
               ),
-              Text(
+              const Text(
                 'Silakan masukkan username dan password\nyang telah terdaftar pada sistem',
                 // style: kBodyMedium.copyWith(
                 //   fontWeight: light,

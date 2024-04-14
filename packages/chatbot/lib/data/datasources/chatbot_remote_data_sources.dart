@@ -2,8 +2,15 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:google_generative_ai/google_generative_ai.dart';
+
 
 import '../models/upload_response.dart';
+
+// access the API key from the .env file
+const apiKey = '7b293993634146b1b5c5cc12b1c43a30';
+
+final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
 
 abstract class ChatbotRemoteDataSource {
   Future<UploadResponse> uploadImage(List<int> bytes, String fileName);

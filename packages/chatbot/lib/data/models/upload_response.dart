@@ -32,3 +32,6 @@ class UploadResponse {
         "predictions": List<dynamic>.from(predictions.map((x) => x.toJson())),
       };
 }
+
+
+
