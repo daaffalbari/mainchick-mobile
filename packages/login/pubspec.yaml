@@ -1,15 +1,19 @@
 name: login
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: none
 homepage:
 
 environment:
   sdk: '>=3.0.3 <4.0.0'
-  flutter: ">=1.17.0"
+  flutter: '>=1.17.0'
 
 dependencies:
   flutter:
     sdk: flutter
+
+  core:
+    path: ../core
 
 dev_dependencies:
   flutter_test:
@@ -21,7 +25,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
 # To add assets to your package, add an assets section, like this:
 # assets:
 #   - images/a_dot_burr.jpeg

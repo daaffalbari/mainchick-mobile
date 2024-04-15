@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:mainchick-mobile/styles/colors.dart';
-// import 'package:mainchick-mobile/styles/text_styles.dart';
+import 'package:core/styles/text_styles.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -41,10 +40,8 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const Text(
                 'Silakan masukkan username dan password\nyang telah terdaftar pada sistem',
-                // style: kBodyMedium.copyWith(
-                //   fontWeight: light,
-                //   height: 1.5,
-                // ),
+                style: TextStyle(
+                    fontFamily: light, height: 1.5, fontSize: kBodyMedium),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
