@@ -88,11 +88,12 @@ class _FeedDetailPageState extends State<FeedDetailPage> {
 
     datePicker() async {
       DateTime? pickedDate = await showDatePicker(
-          context: context,
-          initialDate: DateTime.now(),
-          firstDate: DateTime.now(),
-          //DateTime.now() - not to allow to choose before today.
-          lastDate: DateTime(2100));
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime.now(),
+        //DateTime.now() - not to allow to choose before today.
+        lastDate: DateTime(2100),
+      );
 
       if (pickedDate != null) {
         if (kDebugMode) {
