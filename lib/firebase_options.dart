@@ -69,6 +69,6 @@ class DefaultFirebaseOptions {
         '172329059556-q2ql7vlm2qfqv6c5qdg47k43afaj7v8p.apps.googleusercontent.com',
     iosClientId:
         '172329059556-vs2r4qeorrq41sd4trln9srl9gtv748o.apps.googleusercontent.com',
-    iosBundleId: 'id.ac.unikom.codelabs.moonchick',
+    iosBundleId: 'id.ac.unikom.codelabs.mainchick',
   );
 }
