@@ -9,6 +9,10 @@ import 'package:cage/presentation/provider/cage_block_notifier.dart';
 import 'package:cage/presentation/provider/cage_list_notifier.dart';
 import 'package:cage/presentation/provider/chart_notifier.dart';
 import 'package:chatbot/data/datasources/chatbot_remote_data_sources.dart';
+import 'package:chatbot/domain/repositories/chatbot_repository.dart';
+import 'package:chatbot/data/respositories/chatbot_repository_impl.dart';
+import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
+import 'package:chatbot/domain/usecases/get_chatbot.dart';
 import 'package:chatbot/presentation/provider/pick_image_notifier.dart';
 import 'package:chatbot/presentation/provider/upload_notifier.dart';
 import 'package:feed/data/datasources/feed_remote_data_sources.dart';
@@ -72,7 +76,13 @@ void init() {
 
   locator.registerFactory(
     () => UploadNotifier(
-      ChatbotRemoteDataSourceImpl(),
+      locator(),
+    ),
+  );
+
+  locator.registerFactory(
+    () => ChatBotNotifier(
+      getChatbot: locator(),
     ),
   );
 
@@ -84,6 +94,7 @@ void init() {
   locator.registerLazySingleton(() => GetFeed(locator()));
   locator.registerLazySingleton(() => GetFeedDetail(locator()));
   locator.registerLazySingleton(() => GetHistory(locator()));
+  locator.registerLazySingleton(() => GetChatBot(locator()));
 
   // repository
   locator.registerLazySingleton<CageRepository>(
@@ -92,6 +103,8 @@ void init() {
       () => FeedRepositoryImpl(remoteDataSource: locator()));
   locator.registerLazySingleton<HistoryRepository>(
       () => HistoryRepositoryImpl(remoteDataSource: locator()));
+  locator.registerLazySingleton<ChatBotRepository>(
+      () => ChatBotRepositoryImpl(remoteDataSource: locator()));
 
   // data sources
   locator.registerLazySingleton<CageRemoteDataSource>(
@@ -100,6 +113,8 @@ void init() {
       () => FeedRemoteDataSourceImpl(client: locator()));
   locator.registerLazySingleton<HistoryRemoteDataSource>(
       () => HistoryRemoteDataSourceImpl(client: locator()));
+  locator.registerLazySingleton<ChatBotRemoteDataSource>(
+      () => ChatBotRemoteDataSourceImpl(client: locator()));
 
   // external
   locator.registerLazySingleton(() => http.Client());

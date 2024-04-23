@@ -9,6 +9,7 @@ import 'package:cage/presentation/provider/cage_list_notifier.dart';
 import 'package:cage/presentation/provider/censor_notifier.dart';
 import 'package:cage/presentation/provider/chart_notifier.dart';
 import 'package:chatbot/presentation/pages/chatbot_page.dart';
+import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
 import 'package:chatbot/presentation/provider/pick_image_notifier.dart';
 import 'package:chatbot/presentation/provider/upload_notifier.dart';
 import 'package:core/presentation/pages/home_page.dart';
@@ -69,6 +70,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<UploadNotifier>(),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => di.locator<ChatBotNotifier>(),
         ),
       ],
       child: MaterialApp(

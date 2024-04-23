@@ -41,6 +41,7 @@ Color orange = const Color(0xFFFF9800);
 Color deepOrange = const Color(0xFFFF5722);
 Color brown = const Color(0xFF795548);
 Color blueGrey = const Color(0xFF607D8B);
+Color grey = const Color(0xFF989898);
 
 // Background
 Color blueBackground = const Color(0xFFF1F8FE);
