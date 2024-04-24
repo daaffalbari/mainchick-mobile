@@ -19,7 +19,7 @@ class Heading extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Kandang ${cage.key.getLastChar(1)}",
+          "Cage ${cage.key.getLastChar(1)}",
           style: TextStyle(
             color: indigo,
             fontSize: kBodyLarge,
@@ -27,7 +27,7 @@ class Heading extends StatelessWidget {
           ),
         ),
         const Text(
-          'Lihat Detail',
+          'See Detail',
           style: TextStyle(
             color: Color(0xFF3EA1F1),
             fontSize: 16,

@@ -19,7 +19,7 @@ class Harvest extends StatelessWidget {
       child: Center(
         // TODO belum ada data waktu panen
         child: Text(
-          '$randomNumber Hari Menuju Panen',
+          'Day $randomNumber',
           style: const TextStyle(
             color: Color(0xFF3EA1F1),
             fontSize: kBodySmall,

@@ -705,7 +705,7 @@ class Content extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Kandang ${index + 1}',
+                            'Cage ${index + 1}',
                             style: TextStyle(
                               color: kDarkColor1,
                               fontSize: 16,

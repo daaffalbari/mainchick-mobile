@@ -36,8 +36,8 @@ class _CageDetailPageState extends State<CageDetailPage>
   late TabController _tabController;
 
   static const List<Tab> myTabs = [
-    Tab(text: 'Blok Kandang'),
-    Tab(text: 'Grafik'),
+    Tab(text: 'Block'),
+    Tab(text: 'Chart'),
   ];
 
   @override
@@ -69,7 +69,7 @@ class _CageDetailPageState extends State<CageDetailPage>
       appBar: AppBar(
         elevation: 0,
         leading: const AppBarLeading(),
-        title: AppBarTitle(title: 'Detail Kandang $key'),
+        title: AppBarTitle(title: 'Detail Cage $key'),
         actions: appBarActions(context),
       ),
       backgroundColor: greyBackground,
@@ -84,7 +84,7 @@ class _CageDetailPageState extends State<CageDetailPage>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-              'Diperbaharui: 07-12-2022 12:01',
+              'Last update: 07-12-2022 12:01',
               style: TextStyle(
                 color: Color(0xFF979797),
                 fontSize: kBodySmall,
@@ -95,7 +95,7 @@ class _CageDetailPageState extends State<CageDetailPage>
             chickenData(),
             const SizedBox(height: 36),
             Text(
-              'Analisis Keadaan Kandang',
+              'Cage Analysis',
               style: TextStyle(
                 color: indigo,
                 fontSize: kBodyLarge,
@@ -136,9 +136,9 @@ class _CageDetailPageState extends State<CageDetailPage>
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             // TODO belum ada data pakan, ayam hidup, dan mati
-            chickenDataContent(2345.14, 'Pengeluaran pakan', ' gram'),
-            chickenDataContent(425, 'Ayam hidup'),
-            chickenDataContent(32, 'Total kematian'),
+            chickenDataContent(2345.14, 'Average weight ', ' gram'),
+            chickenDataContent(425, 'Chickens'),
+            chickenDataContent(32, 'Number Of Death'),
           ],
         ),
       ),
@@ -359,23 +359,57 @@ class _CageDetailPageState extends State<CageDetailPage>
                 ),
               ),
               const SizedBox(height: 12),
+              // const Text(
+              //   'Chickens',
+              //   style: TextStyle(
+              //     color: Color(0xFFA8A8A8),
+              //     fontSize: kBodyMedium,
+              //     fontFamily: regular,
+              //   ),
+              // ),
+              // const SizedBox(height: 9),
+              // Text(
+              //   '$randomNumber',
+              //   style: TextStyle(
+              //     color: indigo,
+              //     fontSize: kBodyLarge,
+              //     fontFamily: bold,
+              //   ),
+              // ),
               const Text(
-                'Chickens',
+                'Status',
                 style: TextStyle(
                   color: Color(0xFFA8A8A8),
                   fontSize: kBodyMedium,
                   fontFamily: regular,
                 ),
               ),
-              const SizedBox(height: 9),
-              Text(
-                '$randomNumber',
-                style: TextStyle(
-                  color: indigo,
-                  fontSize: kBodyLarge,
-                  fontFamily: bold,
+              const SizedBox(height: 12),
+              Container(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                decoration: ShapeDecoration(
+                  color: const Color(0xFFFD858B),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(9)),
                 ),
-              ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SvgPicture.asset("assets/icons/temperature_small.svg"),
+                    const SizedBox(width: 2),
+                    const Text(
+                      'High Temperature ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ],
+                ),
+              )
             ],
           ),
         ),
