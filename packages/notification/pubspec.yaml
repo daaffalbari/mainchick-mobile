@@ -4,20 +4,26 @@ version: 0.0.1
 publish_to: none
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: ">=2.18.6 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
+  core:
+    path: ../core
+
   feed:
     path: ../feed
 
+  equatable: ^2.0.5
   android_alarm_manager_plus: ^2.1.0
   flutter_local_notifications: ^13.0.0
   intl: ^0.18.0
   rxdart: ^0.27.7
+  provider: ^6.0.5
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:

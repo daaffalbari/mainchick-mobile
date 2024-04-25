@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/date_extension.dart';
 import 'package:notification/domain/entities/notification.dart'
-    as notificationEntity;
+    as notification_entity;
 import 'package:notification/presentation/pages/notification_detail_page.dart';
 
 class NotificationCard extends StatelessWidget {
   const NotificationCard(this.notification, {Key? key}) : super(key: key);
 
-  final notificationEntity.Notification notification;
+  final notification_entity.Notification notification;
 
   @override
   Widget build(BuildContext context) {
@@ -36,13 +36,13 @@ class NotificationCard extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 notification.type ==
-                        notificationEntity.TypeNotification.temperature
+                        notification_entity.TypeNotification.temperature
                     ? "assets/icons/temperature.svg"
                     : notification.type ==
-                            notificationEntity.TypeNotification.humidity
+                            notification_entity.TypeNotification.humidity
                         ? "assets/icons/humidity.svg"
                         : notification.type ==
-                                notificationEntity.TypeNotification.ammonia
+                                notification_entity.TypeNotification.ammonia
                             ? "assets/icons/ammonia.svg"
                             : "assets/icons/chicken_weight.svg",
               ),

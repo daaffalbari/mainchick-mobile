@@ -5,7 +5,7 @@ import 'package:core/utils/constants.dart';
 import 'package:feed/presentation/provider/feed_list_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:notification/domain/entities/notification.dart'
-    as notificationEntity;
+    as notification_entity;
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/date_extension.dart';
@@ -22,7 +22,7 @@ class NotificationDetailPage extends StatefulWidget {
 
   static const routeName = '/notification-detail';
 
-  final notificationEntity.Notification notification;
+  final notification_entity.Notification notification;
 
   @override
   State<NotificationDetailPage> createState() => _NotificationDetailPageState();
@@ -59,13 +59,13 @@ class _NotificationDetailPageState extends State<NotificationDetailPage> {
                 children: [
                   SvgPicture.asset(
                     widget.notification.type ==
-                            notificationEntity.TypeNotification.temperature
+                            notification_entity.TypeNotification.temperature
                         ? "assets/icons/temperature.svg"
                         : widget.notification.type ==
-                                notificationEntity.TypeNotification.humidity
+                                notification_entity.TypeNotification.humidity
                             ? "assets/icons/humidity.svg"
                             : widget.notification.type ==
-                                    notificationEntity.TypeNotification.ammonia
+                                    notification_entity.TypeNotification.ammonia
                                 ? "assets/icons/ammonia.svg"
                                 : "assets/icons/chicken_weight.svg",
                   ),

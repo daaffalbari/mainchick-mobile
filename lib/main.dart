@@ -3,7 +3,7 @@ import 'package:analysis/presentation/pages/correlation_check_page.dart';
 import 'package:analysis/presentation/pages/solution_page.dart';
 import 'package:cage/domain/entities/cage.dart';
 import 'package:notification/domain/entities/notification.dart'
-    as notificationEntity;
+    as notification_entity;
 import 'package:cage/presentation/pages/cage_detail_page.dart';
 import 'package:cage/presentation/pages/cage_list_page.dart';
 import 'package:cage/presentation/provider/cage_block_notifier.dart';
@@ -128,7 +128,7 @@ class MyApp extends StatelessWidget {
                   builder: (_) => const NotificationPage());
             case NotificationDetailPage.routeName:
               final notification =
-                  settings.arguments as notificationEntity.Notification;
+                  settings.arguments as notification_entity.Notification;
               return MaterialPageRoute(
                 builder: (_) =>
                     NotificationDetailPage(notification: notification),

@@ -5,7 +5,7 @@ import 'package:core/utils/constants.dart';
 import 'package:core/presentation/widgets/cutom_tab_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:notification/domain/entities/notification.dart'
-    as notificationEntity;
+    as notification_entity;
 import 'package:notification/presentation/widgets/notification_card.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -27,45 +27,45 @@ class _NotificationPageState extends State<NotificationPage>
     Tab(text: 'Read'),
   ];
 
-  final List<notificationEntity.Notification> _notifications = [
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.temperature,
+  final List<notification_entity.Notification> _notifications = [
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.temperature,
       title: 'Today you have not given feed',
       description: 'Please do the feeding in cages 1  before the time ends',
       createdAt: DateTime.now().subtract(const Duration(minutes: 24)),
       isRead: true,
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Unstable Humidity',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
       createdAt: DateTime.now().subtract(const Duration(hours: 6)),
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Excess ammonia content',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
       createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
       isRead: true,
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.chicken,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.chicken,
       title: 'Harvest time',
       description: "It's time to harvest in cage 1 block 3",
       createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
       isRead: true,
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Unstable Humidity',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
       createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Unstable Humidity',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
@@ -73,23 +73,23 @@ class _NotificationPageState extends State<NotificationPage>
     ),
   ];
 
-  final List<notificationEntity.Notification> _unreadNotifications = [
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+  final List<notification_entity.Notification> _unreadNotifications = [
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Unstable Humidity',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
       createdAt: DateTime.now().subtract(const Duration(hours: 6)),
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Unstable Humidity',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
       createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Unstable Humidity',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
@@ -97,24 +97,24 @@ class _NotificationPageState extends State<NotificationPage>
     ),
   ];
 
-  final List<notificationEntity.Notification> _readNotifications = [
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.temperature,
+  final List<notification_entity.Notification> _readNotifications = [
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.temperature,
       title: 'Today you have not given feed',
       description: 'Please do the feeding in cages 1  before the time ends',
       createdAt: DateTime.now().subtract(const Duration(minutes: 24)),
       isRead: true,
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.humidity,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.humidity,
       title: 'Excess ammonia content',
       description:
           'Cage 2 Block 1 and Cage 1 Block 3 has a temperature of 68.89°C',
       createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
       isRead: true,
     ),
-    notificationEntity.Notification(
-      type: notificationEntity.TypeNotification.chicken,
+    notification_entity.Notification(
+      type: notification_entity.TypeNotification.chicken,
       title: 'Harvest time',
       description: "It's time to harvest in cage 1 block 3",
       createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
