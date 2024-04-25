@@ -2,6 +2,8 @@ import 'package:analysis/presentation/pages/analysis_page.dart';
 import 'package:analysis/presentation/pages/correlation_check_page.dart';
 import 'package:analysis/presentation/pages/solution_page.dart';
 import 'package:cage/domain/entities/cage.dart';
+import 'package:notification/domain/entities/notification.dart'
+    as notificationEntity;
 import 'package:cage/presentation/pages/cage_detail_page.dart';
 import 'package:cage/presentation/pages/cage_list_page.dart';
 import 'package:cage/presentation/provider/cage_block_notifier.dart';
@@ -12,6 +14,8 @@ import 'package:chatbot/presentation/pages/chatbot_page.dart';
 import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
 import 'package:chatbot/presentation/provider/pick_image_notifier.dart';
 import 'package:chatbot/presentation/provider/upload_notifier.dart';
+import 'package:notification/presentation/pages/notification_detail_page.dart';
+import 'package:notification/presentation/pages/notification_page.dart';
 import 'package:core/presentation/pages/home_page.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/utils/utils.dart';
@@ -119,6 +123,16 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(builder: (_) => const ProfilePage());
             case ChatBotPage.routeName:
               return MaterialPageRoute(builder: (_) => const ChatBotPage());
+            case NotificationPage.routeName:
+              return MaterialPageRoute(
+                  builder: (_) => const NotificationPage());
+            case NotificationDetailPage.routeName:
+              final notification =
+                  settings.arguments as notificationEntity.Notification;
+              return MaterialPageRoute(
+                builder: (_) =>
+                    NotificationDetailPage(notification: notification),
+              );
             default:
               return MaterialPageRoute(builder: (_) {
                 return const Scaffold(

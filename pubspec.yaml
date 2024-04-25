@@ -24,6 +24,8 @@ dependencies:
     path: ../mainchick-mobile/packages/profile
   chatbot:
     path: ../mainchick-mobile/packages/chatbot
+  notification:
+    path: ../mainchick-mobile/packages/notification
 
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0
