@@ -1,10 +1,10 @@
-name: moon_chick
+name: main_chick
 description: A new Flutter project.
 version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: '>=2.18.6 <3.0.0'
+  sdk: ">=2.18.6 <3.0.0"
 
 dependencies:
   flutter:
@@ -24,6 +24,8 @@ dependencies:
     path: ../mainchick-mobile/packages/profile
   chatbot:
     path: ../mainchick-mobile/packages/chatbot
+  notification:
+    path: ../mainchick-mobile/packages/notification
 
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0
@@ -44,7 +46,7 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  image_path: 'assets/icons/launcher.png'
+  image_path: "assets/icons/launcher.png"
 
 flutter:
   uses-material-design: true

@@ -67,7 +67,7 @@ class FcrIp extends StatelessWidget {
               ),
               children: const [
                 TextSpan(
-                  text: ' sejak kemarin',
+                  text: ' since yeserday',
                   // TODO warna increase and decrease
                   style: TextStyle(
                     color: Color(0xFFDD3E46),
@@ -87,7 +87,7 @@ class FcrIp extends StatelessWidget {
           const SizedBox(height: 2),
           // TODO belum ada data kondisi baik/kurang
           const Text(
-            'Keadaan Kurang Baik',
+            'Not Good',
             style: TextStyle(
               color: Color(0xFFA8A8A8),
               fontFamily: regular,

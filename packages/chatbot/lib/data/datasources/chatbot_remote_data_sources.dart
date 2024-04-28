@@ -1,22 +1,30 @@
 import 'dart:convert';
 
+import 'package:chatbot/data/models/chat_model.dart';
+import 'package:chatbot/data/models/chat_response.dart';
+import 'package:core/utils/exception.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:google_generative_ai/google_generative_ai.dart';
-
 
 import '../models/upload_response.dart';
 
 // access the API key from the .env file
 const apiKey = '7b293993634146b1b5c5cc12b1c43a30';
 
-final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
+// final model = GenerativeModel(model: 'gemini-pro', apiKey: apiKey);
 
-abstract class ChatbotRemoteDataSource {
+abstract class ChatBotRemoteDataSource {
   Future<UploadResponse> uploadImage(List<int> bytes, String fileName);
+  Future<ChatModel> getChat(String message);
 }
 
-class ChatbotRemoteDataSourceImpl implements ChatbotRemoteDataSource {
+class ChatBotRemoteDataSourceImpl implements ChatBotRemoteDataSource {
+  static const chatbot = 'https://mainchick.et.r.appspot.com/chatbot';
+
+  final http.Client client;
+
+  ChatBotRemoteDataSourceImpl({required this.client});
+
   @override
   Future<UploadResponse> uploadImage(List<int> bytes, String fileName) async {
     const String url =
@@ -52,6 +60,20 @@ class ChatbotRemoteDataSourceImpl implements ChatbotRemoteDataSource {
     } else {
       debugPrint('False response $responseData');
       throw Exception("Upload file error");
+    }
+  }
+
+  @override
+  Future<ChatModel> getChat(String message) async {
+    final response = await client.post(Uri.parse(chatbot), body: {
+      'message': message,
+    });
+    debugPrint('Response status: ${response.statusCode}');
+    debugPrint('Response body: ${response.body}');
+    if (response.statusCode == 200) {
+      return ChatResponse.fromJson(json.decode(response.body)).chat;
+    } else {
+      throw ServerException();
     }
   }
 }

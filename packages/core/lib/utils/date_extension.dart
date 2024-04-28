@@ -9,4 +9,24 @@ extension DateTimeExtension on DateTime {
       return sum ~/ 7 + 1;
     }
   }
+
+  String get timeAgo {
+    final Duration difference = DateTime.now().difference(this);
+    String text = '';
+
+    if (difference.inSeconds < 60) {
+      text = 'now';
+    } else if (difference.inMinutes < 60) {
+      text =
+          '${difference.inMinutes} minute${difference.inMinutes == 1 ? '' : 's'} ago';
+    } else if (difference.inHours < 24) {
+      text =
+          '${difference.inHours} hour${difference.inHours == 1 ? '' : 's'} ago';
+    } else {
+      final int days = difference.inDays;
+      text = '$days day${days == 1 ? '' : 's'} ago';
+    }
+
+    return text;
+  }
 }

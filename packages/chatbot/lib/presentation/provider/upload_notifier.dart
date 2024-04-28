@@ -5,7 +5,7 @@ import '../../data/datasources/chatbot_remote_data_sources.dart';
 import '../../data/models/upload_response.dart';
 
 class UploadNotifier extends ChangeNotifier {
-  final ChatbotRemoteDataSourceImpl apiService;
+  final ChatBotRemoteDataSourceImpl apiService;
 
   UploadNotifier(this.apiService);
 

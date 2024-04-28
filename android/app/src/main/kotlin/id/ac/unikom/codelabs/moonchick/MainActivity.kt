@@ -1,4 +1,4 @@
-package id.ac.unikom.codelabs.moonchick
+package id.ac.unikom.codelabs.mainchick
 
 import io.flutter.embedding.android.FlutterActivity
 
