@@ -12,6 +12,8 @@ dependencies:
 
   core:
     path: ../mainchick-mobile/packages/core
+  login:
+    path: ../mainchick-mobile/packages/login
   cage:
     path: ../mainchick-mobile/packages/cage
   analysis:
@@ -35,6 +37,7 @@ dependencies:
   firebase_core: ^2.13.0
   dcdg: ^4.1.0
   google_generative_ai: ^0.3.0
+  flutter_markdown: ^0.6.0
 
 dev_dependencies:
   flutter_test:
