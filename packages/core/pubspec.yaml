@@ -11,6 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  login:
+    path: ../login
   cage:
     path: ../cage
   analysis:

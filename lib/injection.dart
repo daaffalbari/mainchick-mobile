@@ -11,10 +11,11 @@ import 'package:cage/presentation/provider/chart_notifier.dart';
 import 'package:chatbot/data/datasources/chatbot_remote_data_sources.dart';
 import 'package:chatbot/domain/repositories/chatbot_repository.dart';
 import 'package:chatbot/data/respositories/chatbot_repository_impl.dart';
+import 'package:chatbot/domain/usecases/post_prediction.dart';
 import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
 import 'package:chatbot/domain/usecases/get_chatbot.dart';
 import 'package:chatbot/presentation/provider/pick_image_notifier.dart';
-import 'package:chatbot/presentation/provider/upload_notifier.dart';
+import 'package:chatbot/presentation/provider/prediction_notifier.dart';
 import 'package:feed/data/datasources/feed_remote_data_sources.dart';
 import 'package:feed/data/repositories/feed_repository_impl.dart';
 import 'package:feed/domain/repositories/feed_repository.dart';
@@ -75,8 +76,8 @@ void init() {
   );
 
   locator.registerFactory(
-    () => UploadNotifier(
-      locator(),
+    () => PredictionNotifier(
+      postPrediction: locator(),
     ),
   );
 
@@ -95,6 +96,7 @@ void init() {
   locator.registerLazySingleton(() => GetFeedDetail(locator()));
   locator.registerLazySingleton(() => GetHistory(locator()));
   locator.registerLazySingleton(() => GetChatBot(locator()));
+  locator.registerLazySingleton(() => PostPrediction(locator()));
 
   // repository
   locator.registerLazySingleton<CageRepository>(

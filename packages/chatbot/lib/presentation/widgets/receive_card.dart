@@ -34,7 +34,7 @@ class ReceiveCard extends StatelessWidget {
           Row(
             children: [
               SvgPicture.asset('assets/icons/clock.svg'),
-              const SizedBox(width: 2),
+              const SizedBox(width: 5),
               Text(chat.createdAt.timeAgo, style: TextStyle(color: grey))
             ],
           ),

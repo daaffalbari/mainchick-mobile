@@ -1,13 +1,17 @@
 import 'dart:io';
 
 import 'package:chatbot/domain/entities/chat.dart';
+import 'package:chatbot/presentation/pages/prediction_detail_page.dart';
 import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
+import 'package:chatbot/presentation/provider/prediction_notifier.dart';
 import 'package:chatbot/presentation/widgets/receive_card.dart';
 import 'package:chatbot/presentation/widgets/send_card.dart';
 import 'package:core/presentation/widgets/app_bar_leading.dart';
 import 'package:core/presentation/widgets/app_bar_title.dart';
 import 'package:core/presentation/widgets/loading_indicator.dart';
 import 'package:core/styles/colors.dart';
+import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/constants.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -15,7 +19,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/pick_image_notifier.dart';
-import '../provider/upload_notifier.dart';
 
 class ChatBotPage extends StatefulWidget {
   const ChatBotPage({Key? key}) : super(key: key);
@@ -92,7 +95,9 @@ class _ChatBotPageState extends State<ChatBotPage> {
                                 Material(
                                   color: Colors.transparent,
                                   child: InkWell(
-                                    onTap: () {},
+                                    onTap: () {
+                                      _onSend('Disease Detection');
+                                    },
                                     borderRadius: const BorderRadius.vertical(
                                         top: Radius.circular(10)),
                                     child: const SizedBox(
@@ -148,7 +153,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
                                   color: Colors.transparent,
                                   child: InkWell(
                                     onTap: () {
-                                      _onSend('Customer care');
+                                      _onSend('Analysis Condition My Cage');
                                     },
                                     borderRadius: const BorderRadius.vertical(
                                         bottom: Radius.circular(10)),
@@ -157,7 +162,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
                                       height: 46,
                                       child: Center(
                                         child: Text(
-                                          "Customer care",
+                                          "Analysis Condition My Cage",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             color: Color(0xFF3CA2F2),
@@ -209,7 +214,9 @@ class _ChatBotPageState extends State<ChatBotPage> {
                       borderRadius: BorderRadius.circular(50),
                       child: InkWell(
                         borderRadius: BorderRadius.circular(50),
-                        onTap: () {},
+                        onTap: () {
+                          _showAlert(context);
+                        },
                         child: SvgPicture.asset('assets/icons/camera.svg'),
                       ),
                     ),
@@ -282,10 +289,70 @@ class _ChatBotPageState extends State<ChatBotPage> {
     }
   }
 
+  void _showAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) => AlertDialog(
+        insetPadding: const EdgeInsets.symmetric(horizontal: defaultMargin),
+        contentPadding: const EdgeInsets.symmetric(
+          vertical: 32,
+          horizontal: 23,
+        ),
+        shape: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide.none,
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                InkWell(
+                  onTap: () {
+                    _onCameraView();
+                    Navigator.pop(context);
+                  },
+                  customBorder: const CircleBorder(),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset("assets/icons/camera.svg"),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Camera',
+                        style: TextStyle(fontFamily: medium),
+                      ),
+                    ],
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    _onGalleryView();
+                    Navigator.pop(context);
+                  },
+                  customBorder: const CircleBorder(),
+                  child: Column(
+                    children: [
+                      SvgPicture.asset("assets/icons/gallery.svg"),
+                      const SizedBox(height: 10),
+                      const Text(
+                        'Gallery',
+                        style: TextStyle(fontFamily: medium),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   _onUpload() async {
-    final ScaffoldMessengerState scaffoldMessengerState =
-        ScaffoldMessenger.of(context);
-    final uploadProvider = context.read<UploadNotifier>();
+    final predictionProvider = context.read<PredictionNotifier>();
 
     final homeProvider = context.read<PickImageNotifier>();
     final imagePath = homeProvider.imagePath;
@@ -295,39 +362,46 @@ class _ChatBotPageState extends State<ChatBotPage> {
     final fileName = imageFile.name;
     final bytes = await imageFile.readAsBytes();
 
-    final newBytes = await uploadProvider.compressImage(bytes);
+    final newBytes = await predictionProvider.compressImage(bytes);
 
-    await uploadProvider.upload(
+    setState(() {
+      _chats.insert(
+        0,
+        Chat(
+            text: '',
+            isReceive: false,
+            image: kIsWeb
+                ? Image.network(
+                    imagePath.toString(),
+                    fit: BoxFit.cover,
+                  )
+                : Image.file(
+                    File(imagePath.toString()),
+                    fit: BoxFit.cover,
+                  )),
+      );
+      _chats.insert(
+        0,
+        Chat(text: '', isLoading: true),
+      );
+    });
+
+    await predictionProvider.uploadPrediction(
       newBytes,
       fileName,
     );
 
-    if (uploadProvider.uploadResponse != null) {
-      homeProvider.setImageFile(null);
-      homeProvider.setImagePath(null);
-    }
-
-    scaffoldMessengerState.showSnackBar(
-      SnackBar(content: Text(uploadProvider.message)),
-    );
-  }
-
-  _onGalleryView() async {
-    final provider = context.read<PickImageNotifier>();
-
-    final isMacOS = defaultTargetPlatform == TargetPlatform.macOS;
-    final isLinux = defaultTargetPlatform == TargetPlatform.linux;
-    if (isMacOS || isLinux) return;
-
-    final picker = ImagePicker();
-
-    final pickedFile = await picker.pickImage(
-      source: ImageSource.gallery,
-    );
-
-    if (pickedFile != null) {
-      provider.setImageFile(pickedFile);
-      provider.setImagePath(pickedFile.path);
+    if (predictionProvider.prediction != null) {
+      if (context.mounted) {
+        setState(() {
+          _chats.removeAt(0);
+        });
+        Navigator.pushNamed(
+          context,
+          PredictionDetailPage.routeName,
+          arguments: predictionProvider.prediction,
+        );
+      }
     }
   }
 
@@ -348,19 +422,27 @@ class _ChatBotPageState extends State<ChatBotPage> {
     if (pickedFile != null) {
       provider.setImageFile(pickedFile);
       provider.setImagePath(pickedFile.path);
+      _onUpload();
     }
   }
 
-  Widget _showImage() {
-    final imagePath = context.read<PickImageNotifier>().imagePath;
-    return kIsWeb
-        ? Image.network(
-            imagePath.toString(),
-            fit: BoxFit.contain,
-          )
-        : Image.file(
-            File(imagePath.toString()),
-            fit: BoxFit.contain,
-          );
+  _onGalleryView() async {
+    final provider = context.read<PickImageNotifier>();
+
+    final isMacOS = defaultTargetPlatform == TargetPlatform.macOS;
+    final isLinux = defaultTargetPlatform == TargetPlatform.linux;
+    if (isMacOS || isLinux) return;
+
+    final picker = ImagePicker();
+
+    final pickedFile = await picker.pickImage(
+      source: ImageSource.gallery,
+    );
+
+    if (pickedFile != null) {
+      provider.setImageFile(pickedFile);
+      provider.setImagePath(pickedFile.path);
+      _onUpload();
+    }
   }
 }
