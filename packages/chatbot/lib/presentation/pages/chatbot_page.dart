@@ -66,7 +66,12 @@ class _ChatBotPageState extends State<ChatBotPage> {
                 itemBuilder: (context, index) {
                   final chat = _chats[index];
                   if (chat.isLoading) {
-                    return const Loading();
+                    return const Column(
+                      children: [
+                        Loading(),
+                        SizedBox(height: 20),
+                      ],
+                    );
                   } else if (index == _chats.length - 1) {
                     return Column(
                       children: [
