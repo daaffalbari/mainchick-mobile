@@ -1,4 +1,5 @@
 import 'package:chatbot/domain/entities/chat.dart';
+import 'package:chatbot/presentation/pages/prediction_detail_page.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/utils/date_extension.dart';
 import 'package:flutter/material.dart';
@@ -39,6 +40,44 @@ class ReceiveCard extends StatelessWidget {
             ],
           ),
           const SizedBox(height: 16),
+          chat.prediction != null
+              ? SizedBox(
+                  width: 135,
+                  child: OutlinedButton(
+                    style: OutlinedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      side: const BorderSide(
+                        color: Color(0xFF3EA1F1),
+                        width: 1,
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        PredictionDetailPage.routeName,
+                        arguments: chat.prediction,
+                      );
+                    },
+                    child: const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.remove_red_eye_outlined,
+                          color: Color(0xFF3EA1F1),
+                        ),
+                        SizedBox(width: 3),
+                        Text(
+                          'See Detail',
+                          style: TextStyle(
+                            color: Color(0xFF3EA1F1),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              : const SizedBox(),
         ],
       ),
     );
