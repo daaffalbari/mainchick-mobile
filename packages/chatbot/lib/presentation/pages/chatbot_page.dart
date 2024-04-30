@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:chatbot/domain/entities/chat.dart';
-import 'package:chatbot/presentation/pages/prediction_detail_page.dart';
 import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
 import 'package:chatbot/presentation/provider/prediction_notifier.dart';
 import 'package:chatbot/presentation/widgets/receive_card.dart';
@@ -395,12 +394,14 @@ class _ChatBotPageState extends State<ChatBotPage> {
       if (context.mounted) {
         setState(() {
           _chats.removeAt(0);
+          _chats.insert(
+              0,
+              Chat(
+                text: predictionProvider.prediction!.result,
+                prediction: predictionProvider.prediction,
+                isReceive: true,
+              ));
         });
-        Navigator.pushNamed(
-          context,
-          PredictionDetailPage.routeName,
-          arguments: predictionProvider.prediction,
-        );
       }
     }
   }

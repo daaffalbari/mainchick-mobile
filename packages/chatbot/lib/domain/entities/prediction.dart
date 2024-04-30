@@ -3,12 +3,14 @@ import 'package:equatable/equatable.dart';
 class Prediction extends Equatable {
   const Prediction({
     required this.deases,
-    required this.candidates,
+    required this.result,
+    required this.detail,
   });
 
   final String deases;
-  final String candidates;
+  final String result;
+  final String detail;
 
   @override
-  List<Object?> get props => [deases, candidates];
+  List<Object?> get props => [deases, result, detail];
 }

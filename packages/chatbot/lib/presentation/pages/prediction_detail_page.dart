@@ -38,7 +38,7 @@ class _PredictionDetailPageState extends State<PredictionDetailPage> {
               height: MediaQuery.of(context).size.height - 200,
               child: Markdown(
                 padding: const EdgeInsets.all(0),
-                data: widget.prediction.candidates,
+                data: widget.prediction.detail,
                 styleSheet: MarkdownStyleSheet(
                   h2: TextStyle(
                       fontSize: 28, color: kDarkColor1, fontFamily: medium),

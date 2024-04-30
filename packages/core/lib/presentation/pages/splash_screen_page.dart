@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:login/login_page.dart';
 
 import '../../styles/colors.dart';
@@ -23,10 +24,16 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: greyBackground,
-      body: Center(
-        child: Image.asset("assets/icons/launcher.png", width: 92),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.transparent,
+      ),
+      child: Scaffold(
+        backgroundColor: greyBackground,
+        body: Center(
+          child: Image.asset("assets/icons/launcher.png", width: 92),
+        ),
       ),
     );
   }
