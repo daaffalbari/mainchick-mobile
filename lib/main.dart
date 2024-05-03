@@ -14,7 +14,7 @@ import 'package:chatbot/presentation/pages/chatbot_page.dart';
 import 'package:chatbot/presentation/pages/prediction_detail_page.dart';
 import 'package:chatbot/presentation/provider/chatbot_notifier.dart';
 import 'package:chatbot/presentation/provider/pick_image_notifier.dart';
-import 'package:login/login_page.dart';
+import 'package:login/presentation/pages/login_page.dart';
 import 'package:notification/presentation/pages/notification_page.dart';
 import 'package:notification/presentation/pages/notification_detail_page.dart';
 import 'package:notification/domain/entities/notification.dart'

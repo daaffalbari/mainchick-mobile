@@ -39,7 +39,7 @@ class ReceiveCard extends StatelessWidget {
               Text(chat.createdAt.timeAgo, style: TextStyle(color: grey))
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 12),
           chat.prediction != null
               ? SizedBox(
                   width: 135,
