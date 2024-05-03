@@ -16,43 +16,53 @@ class SendCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Container(
-            margin: const EdgeInsets.only(bottom: 11),
-            padding:
-                const EdgeInsets.only(top: 14, bottom: 14, left: 20, right: 10),
-            decoration: const ShapeDecoration(
-              gradient: LinearGradient(
-                begin: Alignment(-1.00, -0.02),
-                end: Alignment(1, 0.02),
-                colors: [Color(0xFFF9B76A), Color(0xFFFF8900)],
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(18),
-                  topRight: Radius.circular(18),
-                  bottomLeft: Radius.circular(18),
-                ),
-              ),
-              shadows: [
-                BoxShadow(
-                  color: Color(0x72FFA53D),
-                  blurRadius: 15,
-                  offset: Offset(0, 5),
-                  spreadRadius: 0,
+          chat.image != null
+              ? Container(
+                  width: 203,
+                  height: 231,
+                  padding: const EdgeInsets.only(top: 14, bottom: 14, left: 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: chat.image,
+                  ),
                 )
-              ],
-            ),
-            child: Text(
-              chat.text,
-              style: TextStyle(color: white),
-              textAlign: TextAlign.end,
-            ),
-          ),
+              : Container(
+                  margin: const EdgeInsets.only(bottom: 11),
+                  padding: const EdgeInsets.only(
+                      top: 14, bottom: 14, left: 20, right: 10),
+                  decoration: const ShapeDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment(-1.00, -0.02),
+                      end: Alignment(1, 0.02),
+                      colors: [Color(0xFFF9B76A), Color(0xFFFF8900)],
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(18),
+                        topRight: Radius.circular(18),
+                        bottomLeft: Radius.circular(18),
+                      ),
+                    ),
+                    shadows: [
+                      BoxShadow(
+                        color: Color(0x72FFA53D),
+                        blurRadius: 15,
+                        offset: Offset(0, 5),
+                        spreadRadius: 0,
+                      )
+                    ],
+                  ),
+                  child: Text(
+                    chat.text,
+                    style: TextStyle(color: white),
+                    textAlign: TextAlign.end,
+                  ),
+                ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               SvgPicture.asset('assets/icons/clock.svg'),
-              const SizedBox(width: 2),
+              const SizedBox(width: 5),
               Text(chat.createdAt.timeAgo, style: TextStyle(color: grey))
             ],
           ),

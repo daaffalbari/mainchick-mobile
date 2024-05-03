@@ -15,7 +15,7 @@ extension DateTimeExtension on DateTime {
     String text = '';
 
     if (difference.inSeconds < 60) {
-      text = 'now';
+      text = 'Just now';
     } else if (difference.inMinutes < 60) {
       text =
           '${difference.inMinutes} minute${difference.inMinutes == 1 ? '' : 's'} ago';

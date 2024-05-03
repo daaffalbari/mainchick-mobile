@@ -5,6 +5,7 @@ import 'package:core/utils/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:login/presentation/pages/login_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key? key}) : super(key: key);
@@ -64,10 +65,10 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 24),
-            _buildCard('password', 'Change Password'),
-            _buildCard('settings', 'Settings'),
-            _buildCard('terms', 'Privacy Policy'),
-            const SizedBox(height: 8),
+            // _buildCard('password', 'Change Password'),
+            // _buildCard('settings', 'Settings'),
+            // _buildCard('terms', 'Privacy Policy'),
+            // const SizedBox(height: 8),
             SizedBox(
               height: 50,
               width: MediaQuery.of(context).size.width,
@@ -75,7 +76,9 @@ class ProfilePage extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: red,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, LoginPage.routeName);
+                },
                 child: Text(
                   'Log Out',
                   style: TextStyle(
